@@ -1,3 +1,2 @@
 const utility = require('./utility');
-console.log("Welcome to AddressBook ")
- 
+ utility. AddDetails();
