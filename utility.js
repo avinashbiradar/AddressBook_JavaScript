@@ -1,31 +1,36 @@
-const fs = require("fs")
-const readline = require('readline-sync')
+  const fs = require("fs")
+  const readline = require('readline-sync')
+  //prints the json content    
+  const Filedata = fs.readFileSync('StoreAddressBookDetails.json','utf8'); 
+  const data =JSON.parse(Filedata);
+  console.log(data["Person"]);
+
 class AddressBook{
-   personDetails = {};
    AddDetails=()=>{
    let firstName = readline.question('Enter your First Name:') ;
-   this.personDetails["FirstName"] = firstName;
    let LastName = readline.question('Enter your last name : ');
-   this.personDetails["LastName"] = LastName;
-   let PhoneNumber = readline.question('Enter your Phone Number : ');
-   this.personDetails["PhoneNumber"] = PhoneNumber;
-   let city = readline.question('Enter your City : ');
-   this.personDetails["City"] = city;
+   let City = readline.question('Enter your City : ');
    let State = readline.question('Enter your State name : ');
-   this.personDetails["State"] = State;
    let ZipCode = readline.question('Enter your ZipCode name : ');
-   this.personDetails["ZipCode"] = ZipCode;
-   
-   //stores in a new file
-    let jsonData = JSON.stringify(this.personDetails).concat("\n");
-    fs.writeFileSync('StoreAddressBookDetails.json',jsonData,{encoding:"utf8",flag:"a"});
-      console.log(jsonData);
-      
-   //prints the json content    
-    fs.readFile('StoreAddressBookDetails.json','utf8',(err,data) => {
-        console.log(data);
-    }); 
-  }
+   let PhoneNumber = readline.question('Enter your Phone Number : ');
+   let Email = readline.question('Enter your Email name : ');
+  
+   data.Person.push({
+     firstName:firstName,
+     LastName:LastName,
+     City:City,
+     State:State,
+     ZipCode:ZipCode,
+     PhoneNumber:PhoneNumber,
+     Email:Email
+   });
+   console.log( data["Person"]);
+    //stores in a new file
+    const jsonData = JSON.stringify(data);
+    fs.writeFileSync('StoreAddressBookDetails.json',jsonData);
+    console.log(jsonData);
+  }          
 }
+
 
   module.exports = new AddressBook();
