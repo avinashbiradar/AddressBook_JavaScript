@@ -20,6 +20,11 @@ class AddressBook{
     let jsonData = JSON.stringify(this.personDetails).concat("\n");
     fs.writeFileSync('StoreAddressBookDetails.json',jsonData,{encoding:"utf8",flag:"a"});
       console.log(jsonData);
+      
+   //prints the json content    
+    fs.readFile('StoreAddressBookDetails.json','utf8',(err,data) => {
+        console.log(data);
+    }); 
   }
 }
 
