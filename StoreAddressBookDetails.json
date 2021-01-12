@@ -1,2 +1,22 @@
-{"FirstName":"Avinash","LastName":"Biradar","PhoneNumber":"9923886906","City":"Solapur","State":"Maharashtra","ZipCode":"413004"}
-{"FirstName":"Arun","LastName":"Biradar","PhoneNumber":"8546789123","City":"pune","State":"maha","ZipCode":"413005"}
+{
+    "Person": [
+        {
+            "firstName": "avi",
+            "LastName": "bir",
+            "City": "sol",
+            "State": "maha",
+            "ZipCode": "456",
+            "PhoneNumber": "4566",
+            "Email": "avi"
+        },
+        {
+            "firstName": "arun",
+            "LastName": "biradar",
+            "City": "sola",
+            "State": "maha",
+            "ZipCode": "789",
+            "PhoneNumber": "963582147",
+            "Email": "arun@gmail.com"
+        }
+    ]
+}
