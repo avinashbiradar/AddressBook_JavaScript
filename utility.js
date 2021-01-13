@@ -1,26 +1,52 @@
-const fs = require("fs")
-const readline = require('readline-sync')
-class AddressBook{
-   personDetails = {};
-   AddDetails=()=>{
-   let firstName = readline.question('Enter your First Name:') ;
-   this.personDetails["FirstName"] = firstName;
-   let LastName = readline.question('Enter your last name : ');
-   this.personDetails["LastName"] = LastName;
-   let PhoneNumber = readline.question('Enter your Phone Number : ');
-   this.personDetails["PhoneNumber"] = PhoneNumber;
-   let city = readline.question('Enter your City : ');
-   this.personDetails["City"] = city;
-   let State = readline.question('Enter your State name : ');
-   this.personDetails["State"] = State;
-   let ZipCode = readline.question('Enter your ZipCode name : ');
-   this.personDetails["ZipCode"] = ZipCode;
-   
-   //stores in a new file
-    let jsonData = JSON.stringify(this.personDetails).concat("\n");
-    fs.writeFileSync('StoreAddressBookDetails.json',jsonData,{encoding:"utf8",flag:"a"});
-      console.log(jsonData);
+  const fs = require("fs")
+  const readline = require('readline-sync')
+  
+   //prints the json content    
+  const Filedata = fs.readFileSync('StoreAddressBookDetails.json','utf8'); 
+  const data =JSON.parse(Filedata);
+  console.log(data["Person"]);
+
+class AddressBook{     
+  
+  AddDetails=()=>{
+  let firstName = readline.question('Enter your First Name:') ;
+  let LastName = readline.question('Enter your last name : ');
+  let City = readline.question('Enter your City : ');
+  let State = readline.question('Enter your State name : ');
+  let ZipCode = readline.question('Enter your ZipCode name : ');
+  let PhoneNumber = readline.question('Enter your Phone Number : ');
+  let Email = readline.question('Enter your Email name : ');
+
+  data.Person.push({
+    firstName:firstName,
+    LastName:LastName,
+    City:City,
+    State:State,
+    ZipCode:ZipCode,
+    PhoneNumber:PhoneNumber,
+    Email:Email
+  });
+   console.log( data["Person"]);
+    this.jsonWrite(data);
   }
+  jsonWrite=(data)=>{
+    //stores in a new files
+    const jsonData = JSON.stringify(data);
+    fs.writeFileSync('StoreAddressBookDetails.json',jsonData);
+    console.log(jsonData);
+  }  
+  findPerson=()=>{
+    let input = readline.question("1.find by firstName 2.find by PhoneNumber")
+    if(input==1){
+       let firstName = readline.question("First name: ")
+       console.log(data["Person"].filter(find=>find.firstName===firstName));
+      }
+      else if(input==2){let PhoneNumber = readline.question("Phone Number: ")
+      console.log(data["Person"].filter(find=>find.PhoneNumber===PhoneNumber));
+    }
+    
+  }
+
 }
 
   module.exports = new AddressBook();
