@@ -26,7 +26,7 @@ class AddressBook{
     PhoneNumber:PhoneNumber,
     Email:Email
   });
-   console.log( data["Person"]);
+    this.displayContact();
     this.jsonWrite(data);
   }
   jsonWrite=(data)=>{
@@ -35,6 +35,9 @@ class AddressBook{
     fs.writeFileSync('StoreAddressBookDetails.json',jsonData);
     console.log(jsonData);
   }  
+  displayContact=()=>{
+    console.log( data["Person"]);
+  }
   findPerson=()=>{
     let input = readline.question("1.find by firstName 2.find by PhoneNumber")
     if(input==1){
