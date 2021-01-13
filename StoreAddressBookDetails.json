@@ -1,1 +1,40 @@
-{"Person":[{"firstName":"avinash","LastName":"biradar","City":"solapur","State":"mahar","ZipCode":"413006","PhoneNumber":"7768077322","Email":"avinashb@gmail.com"},{"firstName":"Arun","LastName":"Biradar","City":"Pune","State":"Maha","ZipCode":"413008","PhoneNumber":"7768077322","Email":"Arun@gmail.com"},{"firstName":"Ajay","LastName":"Biradr","City":"Bijapur","State":"Karana","ZipCode":"203114","PhoneNumber":"9874561230","Email":"Ajay@gmail.com"},{"firstName":"Bharati","LastName":"biradar","City":"solap","State":"mahar","ZipCode":"413004","PhoneNumber":"112233","Email":""}]}
+{
+    "Person": [
+        {
+            "firstName": "avinash",
+            "LastName": "biradar",
+            "City": "solapur",
+            "State": "mahar",
+            "ZipCode": "413006",
+            "PhoneNumber": "7768077322",
+            "Email": "avinashb@gmail.com"
+        },
+        {
+            "firstName": "Arun",
+            "LastName": "Biradar",
+            "City": "Pune",
+            "State": "Maha",
+            "ZipCode": "413008",
+            "PhoneNumber": "7768077322",
+            "Email": "Arun@gmail.com"
+        },
+        {
+            "firstName": "Ajay",
+            "LastName": "Biradr",
+            "City": "Bijapur",
+            "State": "Karana",
+            "ZipCode": "203114",
+            "PhoneNumber": "9874561230",
+            "Email": "Ajay@gmail.com"
+        },
+        {
+            "firstName": "gopal",
+            "LastName": "biradar",
+            "City": "solapur",
+            "State": "mahar",
+            "ZipCode": "112233",
+            "PhoneNumber": "998877665",
+            "Email": "gopal@gmail.com"
+        }
+    ]
+}

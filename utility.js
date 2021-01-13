@@ -43,8 +43,19 @@ class AddressBook{
       }
       else if(input==2){let PhoneNumber = readline.question("Phone Number: ")
       console.log(data["Person"].filter(find=>find.PhoneNumber===PhoneNumber));
-    }
-    
+    } 
+  }
+  deleteContactDetails=()=>{
+    let inputPhoneNumber=readline.question("Enter valid PhoneNumber:  ")
+    let tempArray=[];
+    tempArray=data["Person"];
+    let index = tempArray.map((item)=>{
+      return item.PhoneNumber
+    }).indexOf(inputPhoneNumber);
+    console.log(index);
+    data["Person"].splice(index,1);
+     console.log(data);
+     this.jsonWrite(data);
   }
 
 }
