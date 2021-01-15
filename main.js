@@ -1,12 +1,6 @@
 const utility = require('./utility');
 const readline = require('readline-sync');
 let relaunch;
-// utility.sortByZip();
-// utility.sortDetailsByZip();
-
-// utility.editContactDetails();
-
-
 do{
 console.log(
     "\n1.Add Details:\n",
@@ -19,7 +13,7 @@ console.log(
 let input = readline.questionInt('Enter your choice->');
 switch (input) {
     case 1:
-        utility.AddDetails();
+        utility.addDetails();
         break;
     case 2:
         utility.displayContact();
