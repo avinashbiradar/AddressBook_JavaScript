@@ -1,22 +1,22 @@
 {
     "Person": [
         {
-            "firstName": "avinash",
+            "firstName": "bharati",
             "LastName": "biradar",
             "City": "solapur",
-            "State": "mahar",
-            "ZipCode": "413006",
+            "State": "mahas",
+            "ZipCode": "110022",
             "PhoneNumber": "7768077322",
-            "Email": "avinashb@gmail.com"
+            "Email": "bharati@gmail.com"
         },
         {
-            "firstName": "Arun",
-            "LastName": "Biradar",
-            "City": "Pune",
-            "State": "Maha",
-            "ZipCode": "413008",
-            "PhoneNumber": "7768077322",
-            "Email": "Arun@gmail.com"
+            "firstName": "zaid",
+            "LastName": "khan",
+            "City": "banglore",
+            "State": "karna",
+            "ZipCode": "123001",
+            "PhoneNumber": "77553310",
+            "Email": "zaid@gmail.com"
         },
         {
             "firstName": "Ajay",
@@ -37,6 +37,24 @@
             "Email": "aashish@gmail.com"
         },
         {
+            "firstName": "avinash",
+            "LastName": "biradar",
+            "City": "solapur",
+            "State": "mahar",
+            "ZipCode": "413006",
+            "PhoneNumber": "7768077322",
+            "Email": "avinashb@gmail.com"
+        },
+        {
+            "firstName": "Arun",
+            "LastName": "Biradar",
+            "City": "Pune",
+            "State": "Maha",
+            "ZipCode": "413008",
+            "PhoneNumber": "7768077322",
+            "Email": "Arun@gmail.com"
+        },
+        {
             "firstName": "Avi",
             "LastName": "Bira",
             "City": "Pune",
@@ -46,22 +64,13 @@
             "Email": "avi@gmail.com"
         },
         {
-            "firstName": "zaid",
-            "LastName": "khan",
-            "City": "banglore",
-            "State": "karna",
-            "ZipCode": "123001",
-            "PhoneNumber": "77553310",
-            "Email": "zaid@gmail.com"
-        },
-        {
-            "firstName": "bharati",
+            "firstName": "amruta",
             "LastName": "biradar",
-            "City": "solapur",
-            "State": "mahas",
-            "ZipCode": "110022",
-            "PhoneNumber": "7768077322",
-            "Email": "bharati@gmail.com"
+            "City": "bijapur",
+            "State": "karnataka",
+            "ZipCode": "000001",
+            "PhoneNumber": "775533660",
+            "Email": "amruta@gmail.com"
         }
     ]
 }
