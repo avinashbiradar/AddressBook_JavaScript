@@ -1,28 +1,26 @@
   const fs = require("fs")
   const readline = require('readline-sync')
-  
    //prints the json content    
   const Filedata = fs.readFileSync('StoreAddressBookDetails.json','utf8'); 
   const data =JSON.parse(Filedata);
-  console.log(data["Person"]);
 
 class AddressBook{     
   
   AddDetails=()=>{
-  let firstName = readline.question('Enter your First Name:') ;
+  let fName = readline.question('Enter your First Name:') ;
   let LastName = readline.question('Enter your last name : ');
   let City = readline.question('Enter your City : ');
   let State = readline.question('Enter your State name : ');
-  let ZipCode = readline.question('Enter your ZipCode name : ');
+  let zipCode = readline.question('Enter your ZipCode name : ');
   let PhoneNumber = readline.question('Enter your Phone Number : ');
   let Email = readline.question('Enter your Email name : ');
 
-  data.Person.push({
-    firstName:firstName,
+  data["Person"].push({
+    firstName:fName,
     LastName:LastName,
     City:City,
     State:State,
-    ZipCode:ZipCode,
+    ZipCode:zipCode,
     PhoneNumber:PhoneNumber,
     Email:Email
   });
@@ -38,6 +36,7 @@ class AddressBook{
   displayContact=()=>{
     console.log( data["Person"]);
   }
+
   findPerson=()=>{
     let input = readline.question("1.find by firstName 2.find by PhoneNumber")
     if(input==1){
@@ -49,10 +48,11 @@ class AddressBook{
     } 
   }
   deleteContactDetails=()=>{
-    let inputPhoneNumber=readline.question("Enter valid PhoneNumber:  ")
+    let inputPhoneNumber=readline.question("Enter valid PhoneNumber to delete contact:  ")
     let tempArray=[];
     tempArray=data["Person"];
-    let index = tempArray.map((item)=>{
+    let index = tempArray.map((item)=>
+    {
       return item.PhoneNumber
     }).indexOf(inputPhoneNumber);
     console.log(index);
@@ -61,6 +61,35 @@ class AddressBook{
      this.jsonWrite(data);
   }
 
-}
+  editContactDetails=()=>{
+    let inputPhoneNumber=readline.question("Enter valid PhoneNumber to edit contact:  ")
+    let tempArray=[];
+    tempArray=data["Person"];
+    let index = tempArray.map((item)=>{
+      return item.PhoneNumber
+    }).indexOf(inputPhoneNumber);
+    console.log(index);
+    data["Person"].splice(index,1,this.AddDetails());
+     console.log(data);
+     this.jsonWrite(data);
+  }
+    
+  sortByName=()=>{
+  console.log(data["Person"].sort(this.sortPersonByName));
+  }
 
+  sortPersonByName =(a,b)=>{
+      let nameA = a.firstName.toUpperCase(); // ignore upper and lowercase
+      let nameB = b.firstName.toUpperCase(); // ignore upper and lowercase
+      if (nameA<nameB) {
+        return -1;
+      }
+      if (nameA>nameB) {
+        return 1;
+      }
+      // names must be equal
+      return 0;
+    };
+
+}
   module.exports = new AddressBook();
