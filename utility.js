@@ -5,7 +5,7 @@
   const data =JSON.parse(Filedata);
 
 class AddressBook{  
-  firstNameValidator=()=> {
+firstNameValidator=()=> {
    let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
    let  fname = readline.question("Enter valid First name: ")
    if (NAME_PATTERN.test(fname)) {
@@ -17,7 +17,8 @@ class AddressBook{
       }
       return fname;
 }
-  lastNameValidator=()=> {
+
+lastNameValidator=()=> {
   let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
   let lname = readline.question("Enter valid Last name: ")
   if (NAME_PATTERN.test(lname)) {
@@ -29,6 +30,7 @@ class AddressBook{
     }
     return lname;
 }
+
 cityNameValidator=()=> {
   let CITY_NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
   let city_name = readline.question("Enter valid city name: ")
@@ -41,6 +43,7 @@ cityNameValidator=()=> {
     }
     return city_name;
 }
+
 stateNameValidator=()=> {
   let STATE_NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
   let state_name = readline.question("Enter valid state name: ")
@@ -53,6 +56,7 @@ stateNameValidator=()=> {
     }
     return state_name;
 }
+
 zipCodeValidator=()=> {
   let ZIP_CODE_PATTERN = new RegExp("^[0-9]{6}$");
   let zip = readline.question("Enter valid zipcode: ")
@@ -65,7 +69,8 @@ zipCodeValidator=()=> {
     }
     return zip;
 }
-  emailValidator=()=>{
+
+emailValidator=()=>{
   let EMAIL_PATTERN = new RegExp("^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)?@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$");
   let email = readline.question("Enter valid email : ");
   if (EMAIL_PATTERN.test(email)) {
@@ -77,7 +82,8 @@ zipCodeValidator=()=> {
   }
   return email;
 }
-  phoneValidator=()=>{
+
+phoneValidator=()=>{
   let PHONE_NUMBER_PATTERN = new RegExp("^91[ ]?[6-9]{1}[0-9]{9}$");
   let phoneNumber=readline.question("Enter valid Phone Number ");
   if (PHONE_NUMBER_PATTERN .test(phoneNumber)) {
@@ -89,8 +95,7 @@ zipCodeValidator=()=> {
   }
   return phoneNumber;
 }
-
-  addDetails=()=>{
+addDetails=()=>{
   console.log('Enter your first name : ');
   let firstName = this.firstNameValidator(); 
   console.log('Enter your last name : ');
@@ -120,17 +125,12 @@ zipCodeValidator=()=> {
     this.jsonWrite(data);
 
 }
-  jsonWrite=(data)=>{
-    //stores in a new files
-    const jsonData = JSON.stringify(data);
-    fs.writeFileSync('StoreAddressBookDetails.json',jsonData);
-    console.log(jsonData);
-  }  
-  displayContact=()=>{
+  
+displayContact=()=>{
     console.log( data["Person"]);
   }
 
-  findPerson=()=>{
+findPerson=()=>{
     console.log(data);
     let input = readline.question("1.find by firstName 2.find by PhoneNumber")
     if(input==1){
@@ -141,7 +141,7 @@ zipCodeValidator=()=> {
       console.log(data["Person"].filter(find=>find.PhoneNumber===PhoneNumber));
     } 
   }
-  deleteContactDetails=()=>{
+deleteContactDetails=()=>{
     console.log(data);
     let inputPhoneNumber=readline.question("Enter valid PhoneNumber to delete contact:  ")
     let tempArray=[];
@@ -156,27 +156,134 @@ zipCodeValidator=()=> {
      this.jsonWrite(data);
   }
 
-  editContactDetails=()=>{
-    console.log(data);
-    let inputPhoneNumber=readline.question("Enter valid PhoneNumber to edit contact:  ")
-    let tempArray=[];
-    tempArray=data["Person"];
-    let index = tempArray.map((item)=>{
-      return item.PhoneNumber
-    }).indexOf(inputPhoneNumber);
-    console.log(index);
-    data["Person"].splice(index,1,this.AddDetails());
-     console.log(data);
-     this.jsonWrite(data);
+editContactDetails=()=>{
+    this.displayContact();
+    let name= readline.question('Enter name to update:');
+    console.log(data["Person"].filter(find=>find.firstName===name));
+    let input = readline.questionInt("1.FirstName 2.LastName  3.State 4.City 5.Zipcode 6.PhoneNumber 7.Email");
+    let temp;
+    switch (input) {
+            case 1:
+                temp=readline.question('Enter to update:');
+               data["Person"].forEach(element => {
+                 if(element.firstName==name){
+                   element.firstName=temp;
+                 }
+               });
+                    this.jsonWrite(data);
+                    this.displayContact();
+               break;
+            case 2:
+                temp=readline.question('Enter to update:');
+               data["Person"].forEach(element => {
+                 if(element.LastName==name){
+                   element.LastName=temp;
+                 }
+               });
+                    this.jsonWrite(data);
+                    this.displayContact();
+               break;
+            case 3:
+                temp=readline.question('Enter to update:');
+               data["Person"].forEach(element => {
+                 if(element.State==name){
+                   element.State=temp;
+                 }
+               });
+                    this.jsonWrite(data);
+                    this.displayContact();
+               break;
+            case 4:
+                temp=readline.question('Enter to update:');
+               data["Person"].forEach(element => {
+                 if(element.City==name){
+                   element.City=temp;
+                 }
+               });
+                    this.jsonWrite(data);
+                    this.displayContact();
+               break;
+            case 5:
+                 temp=readline.question('Enter to update:');
+                data["Person"].forEach(element => {
+                  if(element.ZipCode==name){
+                    element.ZipCode=temp;
+                  }
+                });
+                     this.jsonWrite(data);
+                     this.displayContact();
+                break;
+            case 6:
+                temp=readline.question('Enter to update:');
+               data["Person"].forEach(element => {
+                 if(element.PhoneNumber==name){
+                   element.PhoneNumber=temp;
+                 }
+               });
+                    this.jsonWrite(data);
+                    this.displayContact();
+               break;
+           case 7:
+                temp=readline.question('Enter to update:');
+                data["Person"].forEach(element => {
+                  if(element.Email==name){
+                    element.Email=temp;
+                  }
+                });
+                     this.jsonWrite(data);
+                     this.displayContact();
+                break;
+           default:
+            break;
+
+    }
+  } 
+
+Sort_by_FirstName_City_ZipCode_State=()=>{
+  console.log( "\n1.Sort Details by firstname:\n", "2.Sort Details by zipCode:\n", "3.Sort Details by City:\n", "4.Sort Details by State:\n");
+  let input = readline.questionInt('Enter your choice->');
+switch (input) {
+    case 1:
+        this.sortByName();
+        break;
+    case 2:
+        this.sortByZip();
+        break;
+    case 3:
+        this.sortByCity();
+        break;
+    case 4:
+        this.sortByState();
+        break;
+   default:
+          break;
+   }
+}
+
+
+sortByState=()=>{
+  console.log(data["Person"].sort(this.sortPersonByState));
   }
-    
-  sortByName=()=>{
-    console.log(data);
+
+sortPersonByState=(a,b)=>{
+      let nameA = a.State.toUpperCase(); // ignore upper and lowercase
+      let nameB = b.State.toUpperCase(); // ignore upper and lowercase
+      if (nameA<nameB) {
+        return -1;
+      }
+      if (nameA>nameB) {
+        return 1;
+      }
+      // names must be equal
+      return 0;
+ };
+
+
+sortByName=()=>{
   console.log(data["Person"].sort(this.sortPersonByName));
   }
 
-  sortPersonByName=(a,b)=>{
-   
+sortPersonByName=(a,b)=>{
       let nameA = a.firstName.toUpperCase(); // ignore upper and lowercase
       let nameB = b.firstName.toUpperCase(); // ignore upper and lowercase
       if (nameA<nameB) {
@@ -188,11 +295,11 @@ zipCodeValidator=()=> {
       // names must be equal
       return 0;
     };
-    sortDetailsByZip=()=>{
+sortByZip=()=>{
       console.log(data);
       console.log(data["Person"].sort(this.sortPersonByZip));
     }
-    sortPersonByZip=(a,b)=>{
+sortPersonByZip=(a,b)=>{
       let zipA = a.ZipCode;
       let zipB = b.ZipCode
       if (zipA<zipB) {
@@ -203,6 +310,28 @@ zipCodeValidator=()=> {
       }
       return 0;
     }
+ sortByCity=()=>{
+      console.log(data);
+      console.log(data["Person"].sort(this.sortPersonByCity));
+    }
+ sortPersonByCity=(a,b)=>{
+      let CityA = a.City.toUpperCase();
+      let CityB = b.City.toUpperCase();
+      if (CityA<CityB) {
+        return -1;
+      }
+      if (CityA>CityB) {
+        return 1;
+      }
+      return 0;
+    }
+  
+    jsonWrite=(data)=>{
+      //stores in a new files
+      const jsonData = JSON.stringify(data);
+      fs.writeFileSync('StoreAddressBookDetails.json',jsonData);
+      console.log(jsonData);
+    }  
   } 
 
   module.exports = new AddressBook();
