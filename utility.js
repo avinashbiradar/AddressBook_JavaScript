@@ -4,96 +4,133 @@
   const Filedata = fs.readFileSync('StoreAddressBookDetails.json','utf8'); 
   const data =JSON.parse(Filedata);
 
-class AddressBook{  
-firstNameValidator=()=> {
-   let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
-   let  fname = readline.question("Enter valid First name: ")
-   if (NAME_PATTERN.test(fname)) {
-       console.log("valid First Name:",fname);
-   }
-   else {
-       console.log("Invalid First Name ");
-       this.firstNameValidator();
-      }
-      return fname;
-}
-
-lastNameValidator=()=> {
   let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
-  let lname = readline.question("Enter valid Last name: ")
-  if (NAME_PATTERN.test(lname)) {
-      console.log("valid Last Name: ",lname);
-    }
-  else {
-      console.log("Invalid Last Name ");
-      this.lastNameValidator();
-    }
-    return lname;
+ let EMAIL_PATTERN = new RegExp("^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)?@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$");
+ let PHONE_NUMBER_PATTERN = new RegExp("^91[ ]?[6-9]{1}[0-9]{9}$");
+ 
+
+class AddressBook{  
+
+firstNameValidator=(fname)=> {
+  let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
+  let  firstname = fname;
+  let result=NAME_PATTERN.test(firstname);
+  console.log(result);
+  return result;
+ 
+   // let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
+  // // let  fname = readline.question("Enter valid First name: ")
+  //  if (NAME_PATTERN.test(fname)) {
+  //      console.log("valid First Name:",fname);
+  //  }
+  //  else {
+  //      console.log("Invalid First Name ");
+  //      this.firstNameValidator();
+  //     }
+  //     return fname;
 }
 
-cityNameValidator=()=> {
+  lastNameValidator=(lname)=> {
+    let  lastname = lname;
+    let result=NAME_PATTERN.test(lastname);
+    console.log(result);
+    return result;
+  // let NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
+  // let lname = readline.question("Enter valid Last name: ")
+  // if (NAME_PATTERN.test(lname)) {
+  //     console.log("valid Last Name: ",lname);
+  //   }
+  // else {
+  //     console.log("Invalid Last Name ");
+  //     this.lastNameValidator();
+  //   }
+  //   return lname;
+}
+
+cityNameValidator=(city)=> {
   let CITY_NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
-  let city_name = readline.question("Enter valid city name: ")
-  if ( CITY_NAME_PATTERN.test(city_name)) {
-      console.log("valid city Name: ",city_name);
-    }
-  else {
-      console.log("Invalid city Name ");
-      this.cityNameValidator();
-    }
-    return city_name;
+  let  City = city;
+    let result=CITY_NAME_PATTERN.test(City);
+    console.log(result);
+    return result;
+  // let city_name = readline.question("Enter valid city name: ")
+  // if ( CITY_NAME_PATTERN.test(city_name)) {
+  //     console.log("valid city Name: ",city_name);
+  //   }
+  // else {
+  //     console.log("Invalid city Name ");
+  //     this.cityNameValidator();
+  //   }
+  //   return city_name;
 }
 
-stateNameValidator=()=> {
+stateNameValidator=(state)=> {
   let STATE_NAME_PATTERN = new RegExp("^[A-Z]{1}[a-z]{2,}$");
-  let state_name = readline.question("Enter valid state name: ")
-  if ( STATE_NAME_PATTERN.test(state_name)) {
-      console.log("valid state Name: ",state_name);
-    }
-  else {
-      console.log("Invalid state Name ");
-      this.stateNameValidator();
-    }
-    return state_name;
+  let  State = state;
+    let result=STATE_NAME_PATTERN.test(State);
+    console.log(result);
+    return result;
+
+  // let state_name = readline.question("Enter valid state name: ")
+  // if ( STATE_NAME_PATTERN.test(state_name)) {
+  //     console.log("valid state Name: ",state_name);
+  //   }
+  // else {
+  //     console.log("Invalid state Name ");
+  //     this.stateNameValidator();
+  //   }
+  //   return state_name;
 }
 
-zipCodeValidator=()=> {
+zipCodeValidator=(zipcode)=> {
   let ZIP_CODE_PATTERN = new RegExp("^[0-9]{6}$");
-  let zip = readline.question("Enter valid zipcode: ")
-  if ( ZIP_CODE_PATTERN.test(zip)) {
-      console.log("valid zip: ",zip);
-    }
-  else {
-      console.log("Invalid zipcode ");
-      this.zipCodeValidator();
-    }
-    return zip;
+  let  ZipCode = zipcode;
+  let result=ZIP_CODE_PATTERN.test(ZipCode);
+  console.log(result);
+  return result;
+  // let zip = readline.question("Enter valid zipcode: ")
+  // if ( ZIP_CODE_PATTERN.test(zip)) {
+  //     console.log("valid zip: ",zip);
+  //   }
+  // else {
+  //     console.log("Invalid zipcode ");
+  //     this.zipCodeValidator();
+  //   }
+  //   return zip;
 }
 
-emailValidator=()=>{
-  let EMAIL_PATTERN = new RegExp("^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)?@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$");
-  let email = readline.question("Enter valid email : ");
-  if (EMAIL_PATTERN.test(email)) {
-      console.log("valid Email ",email);
-  }
-  else {
-      console.log("Invalid Email ");
-      this.emailValidator();
-  }
-  return email;
+emailValidator=(email)=>{
+  let  Email = email;
+  let result=EMAIL_PATTERN.test(Email);
+  console.log(result);
+  return result;
+  // let EMAIL_PATTERN = new RegExp("^[a-zA-Z0-9]+([.][a-zA-Z0-9]+)?@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$");
+  // let email = readline.question("Enter valid email : ");
+  // if (EMAIL_PATTERN.test(email)) {
+  //     console.log("valid Email ",email);
+  // }
+  // else {
+  //     console.log("Invalid Email ");
+  //     this.emailValidator();
+  // }
+  // return email;
 }
 
-phoneValidator=()=>{
-  let PHONE_NUMBER_PATTERN = new RegExp("^91[ ]?[6-9]{1}[0-9]{9}$");
-  let phoneNumber=readline.question("Enter valid Phone Number ");
-  if (PHONE_NUMBER_PATTERN .test(phoneNumber)) {
-      console.log("valid Phone Number ",phoneNumber);
-  }
-  else {
-      console.log("Invalid Phone Number ");
-      this.phoneValidator();
-  }
-  return phoneNumber;
+phoneValidator=(phone)=>{
+  let  phoneNumber = phone;
+  let result=PHONE_NUMBER_PATTERN.test(phoneNumber);
+  console.log(result);
+  return result;
+  // let PHONE_NUMBER_PATTERN = new RegExp("^91[ ]?[6-9]{1}[0-9]{9}$");
+  // let phoneNumber=readline.question("Enter valid Phone Number ");
+  // if (PHONE_NUMBER_PATTERN .test(phoneNumber)) {
+  //     console.log("valid Phone Number ",phoneNumber);
+  // }
+  // else {
+  //     console.log("Invalid Phone Number ");
+  //     this.phoneValidator();
+  // }
+  // return phoneNumber;
 }
 addDetails=()=>{
   console.log('Enter your first name : ');
@@ -158,15 +195,15 @@ deleteContactDetails=()=>{
 
 editContactDetails=()=>{
     this.displayContact();
-    let name= readline.question('Enter name to update:');
-    console.log(data["Person"].filter(find=>find.firstName===name));
+    let Phone= readline.question('Enter name to update:');
+    console.log(data["Person"].filter(find=>find.PhoneNumber===Phone));
     let input = readline.questionInt("1.FirstName 2.LastName  3.State 4.City 5.Zipcode 6.PhoneNumber 7.Email");
     let temp;
     switch (input) {
             case 1:
                 temp=readline.question('Enter to update:');
                data["Person"].forEach(element => {
-                 if(element.firstName==name){
+                 if(element.PhoneNumber==Phone){
                    element.firstName=temp;
                  }
                });
@@ -176,7 +213,7 @@ editContactDetails=()=>{
             case 2:
                 temp=readline.question('Enter to update:');
                data["Person"].forEach(element => {
-                 if(element.LastName==name){
+                 if(element.PhoneNumber==Phone){
                    element.LastName=temp;
                  }
                });
@@ -186,7 +223,7 @@ editContactDetails=()=>{
             case 3:
                 temp=readline.question('Enter to update:');
                data["Person"].forEach(element => {
-                 if(element.State==name){
+                 if(element.PhoneNumber==Phone){
                    element.State=temp;
                  }
                });
@@ -196,7 +233,7 @@ editContactDetails=()=>{
             case 4:
                 temp=readline.question('Enter to update:');
                data["Person"].forEach(element => {
-                 if(element.City==name){
+                 if(element.PhoneNumber==Phone){
                    element.City=temp;
                  }
                });
@@ -206,7 +243,7 @@ editContactDetails=()=>{
             case 5:
                  temp=readline.question('Enter to update:');
                 data["Person"].forEach(element => {
-                  if(element.ZipCode==name){
+                  if(element.PhoneNumber==Phone){
                     element.ZipCode=temp;
                   }
                 });
@@ -216,7 +253,7 @@ editContactDetails=()=>{
             case 6:
                 temp=readline.question('Enter to update:');
                data["Person"].forEach(element => {
-                 if(element.PhoneNumber==name){
+                 if(element.PhoneNumber==Phone){
                    element.PhoneNumber=temp;
                  }
                });
@@ -226,7 +263,7 @@ editContactDetails=()=>{
            case 7:
                 temp=readline.question('Enter to update:');
                 data["Person"].forEach(element => {
-                  if(element.Email==name){
+                  if(element.PhoneNumber==Phone){
                     element.Email=temp;
                   }
                 });
@@ -240,6 +277,7 @@ editContactDetails=()=>{
   } 
 
 Sort_by_FirstName_City_ZipCode_State=()=>{
+  this.displayContact();
   console.log( "\n1.Sort Details by firstname:\n", "2.Sort Details by zipCode:\n", "3.Sort Details by City:\n", "4.Sort Details by State:\n");
   let input = readline.questionInt('Enter your choice->');
 switch (input) {
